@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>クイズ模擬試験</title>
+</head>
+<body>
+  <h1>クイズ模擬試験</h1>
+
+  <h2>教科選択</h2>
+  <label><input type="radio" name="subject" value="sql" checked> SQL</label>
+  <label><input type="radio" name="subject" value="java"> Java</label>
+
+  <h2>ジャンル選択</h2>
+  <label><input type="checkbox" name="genre" value="基本文法"> 基本文法</label>
+  <label><input type="checkbox" name="genre" value="トランザクション"> トランザクション</label>
+  <label><input type="checkbox" name="genre" value="例外処理"> 例外処理</label>
+
+  <br><br>
+  <button onclick="startQuiz()">クイズ開始</button>
+
+  <script>
+    function startQuiz() {
+      alert("ここでクイズを開始します（仮）");
+    }
+  </script>
+</body>
+</html>
