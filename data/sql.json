@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "subject": "SQL",
+    "category": "基本文法",
+    "question": "全ての列を取得するSQL文はどれですか？",
+    "choices": [
+      "SELECT * FROM table_name;",
+      "GET * FROM table_name;",
+      "CHOOSE ALL FROM table_name;",
+      "FETCH * IN table_name;"
+    ],
+    "answer": "SELECT * FROM table_name;",
+    "explanation": "SELECT文はSQLでデータを取得する基本構文です。'*'は全ての列を意味します。"
+  },
+  {
+    "id": 2,
+    "subject": "SQL",
+    "category": "WHERE句",
+    "question": "年齢が20以上のユーザーを取得するSQL文はどれですか？",
+    "choices": [
+      "SELECT * FROM users WHERE age >= 20;",
+      "SELECT * WHERE age >= 20 FROM users;",
+      "GET users WHERE age > 20;",
+      "FIND * FROM users WHEN age >= 20;"
+    ],
+    "answer": "SELECT * FROM users WHERE age >= 20;",
+    "explanation": "WHERE句は条件を指定する際に使用します。正しい順序は FROM → WHERE です。"
+  }
+]

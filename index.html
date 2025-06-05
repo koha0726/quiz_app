@@ -15,6 +15,7 @@
   <label><input type="radio" name="subject" value="java"> Java</label>
 
   <h2>ジャンル選択</h2>
+  <p>※何も選ばない場合 全てのジャンルが出題されます</p>
   <label><input type="checkbox" name="genre" value="基本文法"> 基本文法</label>
   <label><input type="checkbox" name="genre" value="トランザクション"> トランザクション</label>
   <label><input type="checkbox" name="genre" value="例外処理"> 例外処理</label>
@@ -22,10 +23,6 @@
   <br><br>
   <button onclick="startQuiz()">クイズ開始</button>
 
-  <script>
-    function startQuiz() {
-      alert("ここでクイズを開始します（仮）");
-    }
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
