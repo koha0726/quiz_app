@@ -4,10 +4,14 @@
   <meta charset="UTF-8">
   <meta name="robots" content="noindex, nofollow">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
 
   <title>クイズ模擬試験</title>
 </head>
 <body>
+  <!-- トップ画面 -->
+
+  <div id="start-screen">
   <h1>クイズ模擬試験</h1>
 
   <h2>教科選択</h2>
@@ -22,6 +26,24 @@
 
   <br><br>
   <button onclick="startQuiz()">クイズ開始</button>
+  </div>
+
+  <!-- クイズ画面 -->
+
+  <div id="quiz-screen" style="display:none;">
+    <div id="question-text">ここに問題文</div>
+    <div id="choices">選択肢のボタン</div>
+    <button onclick="showResult()">回答する</button>
+  </div>
+
+  <!-- 解説画面 -->
+
+  <div id="result-screen" style="display:none;">
+    <div id="result-text">合否と解説</div>
+    <button onclick="nextQuestion()">次の問題へ</button>
+  </div>
+
+
 
   <script src="script.js"></script>
 </body>
