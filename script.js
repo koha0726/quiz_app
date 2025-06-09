@@ -101,6 +101,11 @@ function checkAnswer(index) {
 }
 
 // 解説
-function showResult() {
+function showResult(index) {
   document.getElementById('result-screen').style.display = 'block';
+
+  const explanationDiv = document.getElementById('explanation');
+  const explanation = quizData[index].explanation || "解説はありません";
+  explanationDiv.innerText = explanation;
+
 }
