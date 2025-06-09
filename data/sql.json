@@ -11,7 +11,8 @@
       "FETCH * IN table_name;"
     ],
     "answer": "SELECT * FROM table_name;",
-    "explanation": "SELECT文はSQLでデータを取得する基本構文です。'*'は全ての列を意味します。"
+    "explanation": "SELECT文はSQLでデータを取得する基本構文です。'*'は全ての列を意味します。",
+    "type": "single"
   },
   {
     "id": 2,
@@ -22,9 +23,13 @@
       "SELECT * FROM users WHERE age >= 20;",
       "SELECT * WHERE age >= 20 FROM users;",
       "GET users WHERE age > 20;",
-      "FIND * FROM users WHEN age >= 20;"
+      "SELECT user FROM users WHERE age > 19"
     ],
-    "answer": "SELECT * FROM users WHERE age >= 20;",
-    "explanation": "WHERE句は条件を指定する際に使用します。正しい順序は FROM → WHERE です。"
+    "answer": [
+      "SELECT * FROM users WHERE age >= 20;",
+      "SELECT user FROM users WHERE age > 19"
+    ],
+    "explanation": "WHERE句は条件を指定する際に使用します。正しい順序は FROM → WHERE です。",
+    "type": "multiple"
   }
 ]

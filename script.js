@@ -38,6 +38,32 @@ function showQuestion(index) {
 
   // 問題文の表示
   document.getElementById('question-text').textContent = question.question;
+
+  const choicesContainer = document.getElementById('choices');
+  choicesContainer.innerHTML = ''; // 前回の選択肢のクリア
+
+  // 選択ボタンの設定
+  const inputType = question.type === 'multiple' ? 'checkbox' : 'radio';
+
+  // 選択肢リストのループ処理
+  question.choices.forEach((choice, i) => {
+
+    // ラベルでテキストとボタンをセットにする
+    const label = document.createElement('label');
+    const input = document.createElement('input');
+
+    input.type = inputType;
+    input.name = 'choice';
+    input.value = choice; // 選択肢のテキストをvalue属性にセットする
+
+    // ラベルに選択ボタンとテキストを追加
+    label.appendChild(input);
+    label.appendChild(document.createTextNode(choice));
+
+    const br = document.createElement('br');
+    choicesContainer.appendChild(label);
+    choicesContainer.appendChild(br);
+  });
 }
 
 // 解説
