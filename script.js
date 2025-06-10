@@ -43,6 +43,14 @@ function startQuiz() {
 
 }
 
+// 選択肢のシャッフル
+function shuffleArray(array) {
+  for (let i = array.length -1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+}
+
 // 問題文・選択肢の表示
 function showQuestion(index) {
   currentQuestionIndex = index; // 現在の問題番号
@@ -52,6 +60,9 @@ function showQuestion(index) {
     console.error('指定された問題が存在しません');
     return;
   }
+
+  const choices = [...question.choices];
+  shuffleArray(choices);
 
   // 問題文の表示
   document.getElementById('question-text').textContent = question.question;
@@ -63,7 +74,7 @@ function showQuestion(index) {
   const inputType = question.type === 'multiple' ? 'checkbox' : 'radio';
 
   // 選択肢リストのループ処理
-  question.choices.forEach((choice, i) => {
+  choices.forEach((choice, i) => {
 
     // ラベルでテキストとボタンをセットにする
     const label = document.createElement('label');
