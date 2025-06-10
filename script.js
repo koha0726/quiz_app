@@ -18,8 +18,21 @@ function startQuiz() {
   fetch('data/sql.json')
     .then(res => res.json())
     .then(data => {
-      quizData = data;
-      console.log(data); 
+      // 選択したジャンルの取得
+      const selectedCategory = Array.from(document.querySelectorAll('input[name="category"]:checked'))
+      .map(el => el.value);
+
+      // 全ジャンル選択 or 未選択時は全データ使用
+      if (selectedCategory.length > 0) {
+        quizData = data.filter(q => selectedCategory.includes(q.category));
+      } else {
+        quizData = data;
+      }
+
+      // デバッグログ
+      console.log("選択されたカテゴリ:", selectedCategory);
+      console.log("データのカテゴリ一覧:", data.map(q => q.category));
+
 
       // 一時表示
       showQuestion(0);
