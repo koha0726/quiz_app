@@ -21,7 +21,7 @@ function startQuiz() {
       console.log(data); 
 
       // 一時表示
-      showQuestion(1);
+      showQuestion(0);
     })
     .catch(err => {
       console.error('JSONの読み込みに失敗:', err);
@@ -108,4 +108,19 @@ function showResult(index) {
   const explanation = quizData[index].explanation || "解説はありません";
   explanationDiv.innerText = explanation;
 
+}
+
+// 次の問題
+function nextQuestion() {
+  currentQuestionIndex++;
+
+  // 問題が残っているか判別
+  if (currentQuestionIndex < quizData.length) {
+    document.getElementById('result-screen').style.display = 'none';
+    document.getElementById('quiz-screen').style.display = 'block';
+    showQuestion(currentQuestionIndex);
+  } else {
+    alert("全ての問題が終了しました。トップに戻ります。");
+    home();
+  }
 }
