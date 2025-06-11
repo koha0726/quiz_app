@@ -62,7 +62,11 @@ function showQuestion(index) {
   }
 
   const choices = [...question.choices];
-  shuffleArray(choices);
+  shuffleArray(choices); // 選択肢シャッフル
+
+  // 記号ラベル
+  const kanaLabels = ['ア', 'イ', 'ウ', 'エ', 'オ', 'カ', 'キ', 'ク', 'ケ', 'コ'];
+  const labelMap = {};
 
   // 問題文の表示
   document.getElementById('question-text').textContent = question.question;
@@ -76,37 +80,45 @@ function showQuestion(index) {
   // 選択肢リストのループ処理
   choices.forEach((choice, i) => {
 
+    const kana = kanaLabels[i];
+    labelMap[kana] = choice; // カナと選択肢の紐づけ
+
     // ラベルでテキストとボタンをセットにする
     const label = document.createElement('label');
     const input = document.createElement('input');
 
     input.type = inputType;
     input.name = 'choice';
-    input.value = choice; // 選択肢のテキストをvalue属性にセット
+    input.value = kana; // ラベル記号をvalue属性にセット
 
     // ラベルに選択ボタンとテキストを追加
     label.appendChild(input);
-    label.appendChild(document.createTextNode(choice));
+    label.appendChild(document.createTextNode(`${kana}.${choice}`));
 
     const br = document.createElement('br');
     // 子要素として追加
     choicesContainer.appendChild(label);
     choicesContainer.appendChild(br);
   });
+
+  question._labelMap = labelMap;
 }
 
 // 正誤判定
 function checkAnswer(index) {
   const question = quizData[index];
   const inputs = document.querySelectorAll('input[name="choice"]'); // 現在のすべての選択肢の要素を取得
-  const selected = [];
+  const selectedLabels = [];
 
   // 選択されているものだけをselectedに追加
   inputs.forEach(input => {
     if (input.checked) {
-      selected.push(input.value);
+      selectedLabels.push(input.value);
     }
   });
+  
+  //ラベルからテキストへの変換
+  const selected = selectedLabels.map(label => question._labelMap[label]);
 
   // 正解の数の変化の対応
   const correct = Array.isArray(question.answer) ? question.answer : [question.answer];
@@ -123,6 +135,25 @@ function checkAnswer(index) {
     answerDiv.style.color = "red";
   }
 
+  // テキスト→ラベル
+  const reverseLabelMap = {};
+  for (const [label, text] of Object.entries(question._labelMap)) {
+    reverseLabelMap[text] = label;
+  }
+
+  const correctLabels = correct.map(answer => reverseLabelMap[answer]);
+
+  const detailDiv = document.createElement('div');
+  detailDiv.innerHTML = `あなたの選択: ${selectedLabels.join('、') || '(未選択)'}<br>
+  正解: ${correctLabels.join('、')}<br>`;
+
+  // 前回の表示があれば消す
+  const existingDetail = answerDiv.querySelector('div');
+  if (existingDetail) {
+    answerDiv.removeChild(existingDetail);
+  }
+
+  answerDiv.appendChild(detailDiv);
 }
 
 // 解説
