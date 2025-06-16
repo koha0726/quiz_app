@@ -102,6 +102,12 @@ function showQuestion(index) {
   });
 
   question._labelMap = labelMap;
+
+  // 問題数の表示
+  const progressDiv = document.getElementById('progress');
+  if (progressDiv) {
+    progressDiv.textContent = `${index + 1}問目／全${quizData.length}問`;
+  }
 }
 
 // 正誤判定
