@@ -11,7 +11,6 @@ let currentQuestionIndex = 0; // インデックス番号の保持
 // 問題画面
 function startQuiz() {
   currentQuestionIndex = 0;
-  alert("ここでクイズを開始します（仮）");
   document.getElementById('start-screen').style.display = 'none';
   document.getElementById('quiz-screen').style.display = 'block';
 
