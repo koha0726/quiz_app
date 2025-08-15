@@ -6,8 +6,7 @@ body {
 }
 
 .main-container {
-    padding: 30px;
-    margin-top: 30px;
+    padding: 0px 30px 30px 30px;
     width: 100%;
     max-width: 900px;
     border-radius: 8px;
@@ -16,8 +15,13 @@ body {
     margin-left: auto;
 }
 
+#header {
+    padding-bottom: 20px;
+}
 
-h2 {
+
+h2,
+h3 {
     color: #333;
 }
 
@@ -25,6 +29,23 @@ h2 {
     margin-top: 10px;
     background-attachment: fixed;
     
+}
+
+.category-group label {
+    display: inline-block;
+}
+
+#progress {
+    padding-bottom: 10px;
+    padding-top: 5px;
+}
+
+/* \nを改行として表示する */
+#question-text,
+#choices label,
+#explanation {
+    white-space: pre-wrap;
+    line-height: 1.6;
 }
 
 #choices {
@@ -75,6 +96,7 @@ button:hover {
 
 #answer {
     padding-bottom: 15px;
+    line-height: 1.5;
 }
 
 #result-screen {

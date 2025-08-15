@@ -11,7 +11,7 @@
       "FETCH * IN table_name;"
     ],
     "answer": "SELECT * FROM table_name;",
-    "explanation": "SELECT文はSQLでデータを取得する基本構文です。'*'は全ての列を意味します。",
+    "explanation": "SELECT文はSQLでデータを取得する基本構文です。\n'*'は全ての列を意味します。",
     "type": "single"
   },
   {
