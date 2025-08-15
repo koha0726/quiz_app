@@ -94,6 +94,12 @@ button:hover {
     background-color: #cccccc;
 }
 
+#clear-category {
+    background-color: #dedede;
+    border: 1px solid #7b7b7b;
+    padding: 5px;
+}
+
 #answer {
     padding-bottom: 15px;
     line-height: 1.5;

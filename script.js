@@ -42,6 +42,14 @@ function startQuiz() {
 
 }
 
+// カテゴリ選択全解除
+document.getElementById('clear-category').addEventListener('click', () => {
+  document.querySelectorAll('input[name="category"]').forEach(cd => {
+    cd.checked = false;
+  });
+});
+
+
 // 選択肢のシャッフル
 function shuffleArray(array) {
   for (let i = array.length -1; i > 0; i--) {
