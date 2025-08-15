@@ -3,7 +3,7 @@
     "id": 1,
     "subject": "SQL",
     "category": "基本文法",
-    "question": "全ての列を取得するSQL文はどれですか？",
+    "question": "全ての列を取得するSQL文はどれですか",
     "choices": [
       "SELECT * FROM table_name;",
       "GET * FROM table_name;",
@@ -18,7 +18,7 @@
     "id": 2,
     "subject": "SQL",
     "category": "WHERE句",
-    "question": "年齢が20以上のユーザーを取得するSQL文はどれですか？",
+    "question": "年齢が20以上のユーザーを取得するSQL文はどれですか (2つ選択してください)",
     "choices": [
       "SELECT * FROM users WHERE age >= 20;",
       "SELECT * WHERE age >= 20 FROM users;",
@@ -30,6 +30,44 @@
       "SELECT user FROM users WHERE age > 19"
     ],
     "explanation": "WHERE句は条件を指定する際に使用します。正しい順序は FROM → WHERE です。",
+    "type": "multiple"
+  },
+  {
+    "id": 3,
+    "subject": "SQL",
+    "category": "DML",
+    "question": "データ操作言語(DML)について正しい記述はどれですか (2つ選択してください)",
+    "choices": [
+      "1つのUPDATE文で複数の列の値をまとめて更新することはできない。",
+      "1つのUPDATE文のSET句に複数の副問合せを書くことができる。",
+      "INSERT文でNULL値を明示的に挿入することはできない。",
+      "INSERT文で明示的に値を設定しなかった列には、デフォルト値もしくはNULL値が挿入される。",
+      "DELETE文でWHERE句を書かないと1行も削除されない。"
+    ],
+    "answer": [
+      "1つのUPDATE文のSET句に複数の副問合せを書くことができる。",
+      "INSERT文で明示的に値を設定しなかった列には、デフォルト値もしくはNULL値が挿入される。"],
+    "explanation": "UPDATE文のSET句に、カンマ「, 」で区切って「変更したい列名と値」を複数指定すると、一度に複数の列を変更できます。\n副問合せは、戻す行数、値の数がマッチしてさえいればどこでも指定ができます。また、埋め込むことができる副問合せの数に制約はありません。\nINSERT句に「NULL」を指定すると、NULL値を明示的に挿入できます。\nINSERT文で明示的に値を設定しなかった列には、デフォルト値もしくはNULL値が挿入されます。\nDELETE文でWHERE句を省略すると、すべての行が削除されます。",
+    "type": "multiple"
+  },
+  {
+    "id": 4,
+    "subject": "SQL",
+    "category": "データ型",
+    "question": "NUMBER(5,3)として定義した列に値を挿入します。エラーにならずに挿入できる値はどれですか (3つ選択してください)",
+    "choices": [
+      "12345",
+      "123.45",
+      "12.3456",
+      "1.2345",
+      "1.23456"
+    ],
+    "answer": [
+      "12.3456",
+      "1.2345",
+      "1.23456"
+    ],
+    "explanation": "NUMBER(5,3)は、整数部分の最大桁数が2(=5-3)、小数点以下の最大桁数が3です。\nNUMBER(n,m)と表した時、mの数値を超えた場合は四捨五入が行われエラーは発生しません。",
     "type": "multiple"
   }
 ]
