@@ -168,6 +168,13 @@ function checkAnswer(index) {
   }
 
   answerDiv.appendChild(detailDiv);
+
+  setTimeout(() => {
+    answerDiv.scrollIntoView({
+    behavior: "smooth",
+    block: "start"
+  });
+  }, 50);
 }
 
 // 解説
@@ -189,6 +196,12 @@ function nextQuestion() {
     document.getElementById('result-screen').style.display = 'none';
     document.getElementById('quiz-screen').style.display = 'block';
     showQuestion(currentQuestionIndex);
+
+    // 一番上にスクロール
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
   } else {
     alert("全ての問題が終了しました。トップに戻ります。");
     home();
