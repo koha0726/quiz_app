@@ -28,10 +28,6 @@ function startQuiz() {
         quizData = data;
       }
 
-      // デバッグログ
-      console.log("選択されたカテゴリ:", selectedCategory);
-      console.log("データのカテゴリ一覧:", data.map(q => q.category));
-
       shuffleArray(quizData);
 
       // 問題表示
